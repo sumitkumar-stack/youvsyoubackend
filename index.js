@@ -4,6 +4,11 @@ dotenv.config();
 import connectDB from "./src/config/db.js";
 import userRoutes from "./src/users/route.js";
 
+
+
+connectDB();
+
+const app = express();
 app.use(
   cors({
     origin: "*", // allow all origins
@@ -11,11 +16,6 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-
-connectDB();
-
-const app = express();
-
 // Middleware
 app.use(express.json());
 

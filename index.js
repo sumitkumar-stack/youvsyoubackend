@@ -2,8 +2,15 @@ import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
 import connectDB from "./src/config/db.js";
-import userRoutes from "./src/users/route.js"
+import userRoutes from "./src/users/route.js";
 
+app.use(
+  cors({
+    origin: "*", // allow all origins
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 connectDB();
 
@@ -20,7 +27,7 @@ app.get("/", (req, res) => {
 });
 
 // Port
-const PORT = process.env.PORT || 3999
+const PORT = process.env.PORT || 3999;
 
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);

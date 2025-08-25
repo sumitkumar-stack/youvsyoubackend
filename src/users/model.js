@@ -24,7 +24,6 @@ const Userschema = new mongoose.Schema(
     },
     challengeType: {
       type: String,
-      enum: ["Weight Loss", "Weight Gain", "Fitness", "Other"],
       required: true,
     },
     startingPoint: {

@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import connectDB from "./src/config/db.js";
 import userRoutes from "./src/users/route.js";
+import ProgressLog from "./src/progress/route.js";
 import cors from "cors";
 
 
@@ -21,6 +22,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/user", userRoutes);
+app.use("/api/progress", ProgressLog);
 
 app.get("/", (req, res) => {
   return res.send("Welcome to the You vs You API 🚀");
